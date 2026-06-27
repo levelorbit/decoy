@@ -1,0 +1,18 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="m">
+      <path d="M15 13 L49 13 C51 13 52 14.2 52 16 L52 30 C52 40 44 48 34 54 C32.8 54.7 31.2 54.7 30 54 C20 48 12 40 12 30 L12 16 C12 14.2 13 13 15 13 Z" fill="#F5EDDC"/>
+      <rect x="18.5" y="23" width="11" height="7" rx="2.5" fill="#7E1F30"/>
+      <rect x="34.5" y="23" width="11" height="7" rx="2.5" fill="#7E1F30"/>
+    </g>
+    <clipPath id="l">
+      <path d="M40 0 L40 10 L35 20 L41 27 L34 35 L40 43 L35 50 L38 58 L38 64 L0 64 L0 0 Z"/>
+    </clipPath>
+    <clipPath id="r">
+      <path d="M42 0 L42 10 L37 20 L43 27 L36 35 L42 43 L37 50 L40 58 L40 64 L64 64 L64 0 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#7E1F30"/>
+  <g clip-path="url(#l)"><use xlink:href="#m"/></g>
+  <g transform="translate(2 1.2) rotate(1.2 52 16)"><g clip-path="url(#r)"><use xlink:href="#m"/></g></g>
+</svg>

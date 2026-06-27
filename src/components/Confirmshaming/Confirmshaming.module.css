@@ -1,0 +1,65 @@
+.confirmshaming {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 400px;
+  padding: var(--space-4) var(--space-3);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 14px;
+  border-radius: var(--radius-m);
+}
+
+.confirmshaming-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.confirmshaming-offer {
+  text-align: center;
+  font-weight: 500;
+}
+
+.confirmshaming-offer-btn {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  border-radius: var(--radius-s);
+  padding: var(--space-2) var(--space-3);
+  max-width: 200px;
+  cursor: pointer;
+  transition:
+    background-color 120ms var(--ease-out),
+    transform 120ms var(--ease-out);
+}
+
+.confirmshaming-offer-btn:active {
+  transform: scale(0.95);
+}
+
+.confirmshaming-btn {
+  border: none;
+  background-color: transparent;
+  max-width: 240px;
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .confirmshaming-offer-btn:hover {
+    background-color: var(--color-accent-hover);
+  }
+  .confirmshaming-btn:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirmshaming-offer-btn {
+    transition: background-color 120ms var(--ease-out);
+  }
+}

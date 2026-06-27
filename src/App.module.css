@@ -1,0 +1,36 @@
+.page {
+  box-sizing: border-box;
+  /* The gallery is a grid of fixed 448px tracks, so an arbitrary cap
+       (e.g. 1440px) can land between column counts and strand the leftover
+       width as dead space beside the grid. Derive the cap from the tracks
+       instead: exactly three columns, their two gaps, and the page's own
+       side padding, so the grid always fills the container at full width. */
+  max-width: calc(3 * 448px + 2 * var(--space-4) + 2 * var(--space-5));
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.tagline {
+  margin: 0;
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}

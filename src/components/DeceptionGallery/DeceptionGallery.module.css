@@ -1,0 +1,6 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 448px);
+  gap: var(--space-4);
+  align-items: stretch;
+}
