@@ -1,9 +1,9 @@
 .morph {
   position: relative;
   overflow: hidden;
-  transition:
-    width 180ms var(--ease-in-out),
-    height 180ms var(--ease-in-out);
+  width: 100%;
+  max-width: var(--demo-width);
+  transition: height 180ms var(--ease-in-out);
 }
 
 .base,
@@ -11,6 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 /* A layer that is invisible — faded to opacity 0 or sitting under the
