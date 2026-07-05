@@ -20,16 +20,13 @@
 }
 
 .title {
-  margin: 0;
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
   font-weight: 700;
-  line-height: var(--leading-tight);
+  line-height: var(--leading-display);
   letter-spacing: -0.02em;
-  color: var(--color-ink);
 }
 
 .tagline {
-  margin: 0;
   max-width: 60ch;
   font-size: var(--text-m);
   line-height: var(--leading-body);
