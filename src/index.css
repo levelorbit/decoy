@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 
 :root {
   --space-1: 0.25rem; /* 4px  */
@@ -17,6 +17,16 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
+  --text-xs: 0.75rem; /* 12px — badges, captions */
+  --text-s: 0.875rem; /* 14px — secondary/UI text */
+  --text-m: 1rem; /* 16px — body default */
+  --text-l: 1.125rem; /* 18px — card titles */
+  --text-xl: 1.5rem; /* 24px — section headings */
+  --text-2xl: 2.5rem; /* 40px — page title */
+
+  --leading-body: 1.35; /* prose */
+  --leading-tight: 1.2; /* headings, short UI labels */
+
   --color-bg: oklch(0.985 0.015 85.93);
   --color-surface: oklch(0.9235 0.0793 85.93);
   --color-surface-dim: oklch(0.86 0.06 85.93);
@@ -31,9 +41,18 @@
   --color-deceptive: oklch(0.55 0.19 25);
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   margin: 0;
-  font-family: "Geist", system-ui, sans-serif;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: var(--leading-body);
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "kern";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg);

@@ -19,13 +19,14 @@
 
 .heading {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--text-m);
   font-weight: 600;
+  line-height: var(--leading-tight);
 }
 
 .detail {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-s);
   color: var(--color-ink-muted);
 }
 
@@ -37,7 +38,7 @@
 
 .primary {
   padding: var(--space-2) var(--space-3);
-  font-size: 14px;
+  font-size: var(--text-s);
   font-weight: 500;
   color: var(--color-surface);
   background-color: var(--color-accent);
@@ -55,7 +56,7 @@
 
 .secondary {
   padding: var(--space-2) var(--space-3);
-  font-size: 14px;
+  font-size: var(--text-s);
   font-weight: 500;
   color: var(--color-ink);
   background-color: transparent;

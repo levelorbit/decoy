@@ -33,20 +33,22 @@
 
 .name {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--text-m);
   font-weight: 600;
+  line-height: var(--leading-tight);
   color: var(--color-ink);
 }
 
 .price {
-  font-size: 18px;
+  font-size: var(--text-l);
   font-weight: 700;
+  line-height: var(--leading-tight);
   color: var(--color-ink);
 }
 
 .stock {
   margin: var(--space-1) 0 0;
-  font-size: 13px;
+  font-size: var(--text-s);
   font-weight: 600;
   color: var(--color-deceptive);
 }
@@ -56,7 +58,7 @@
   align-items: center;
   gap: 6px;
   margin: 0;
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: var(--color-ink-muted);
 }
 
@@ -70,7 +72,7 @@
 
 .timer {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-s);
   color: var(--color-ink-muted);
 }
 
@@ -82,7 +84,7 @@
 
 .stockHonest {
   margin: var(--space-1) 0 0;
-  font-size: 13px;
+  font-size: var(--text-s);
   font-weight: 500;
   color: var(--color-honest);
 }
@@ -91,7 +93,7 @@
   align-self: flex-start;
   margin-top: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  font-size: 14px;
+  font-size: var(--text-s);
   font-weight: 500;
   color: var(--color-surface);
   background-color: var(--color-accent);
