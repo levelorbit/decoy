@@ -45,6 +45,7 @@
 .confirmshaming-btn {
   border: none;
   background-color: transparent;
+  color: var(--color-ink);
   max-width: 240px;
   padding: var(--space-2) var(--space-3);
   cursor: pointer;
