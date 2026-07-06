@@ -15,15 +15,14 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
+  --text-2xs: 0.75rem; /* 12px */
   --text-xs: 0.875rem; /* 14px */
   --text-s: 1rem; /* 16px */
   --text-m: 1.125rem; /* 18px */
-  --text-l: 1.25rem; /* 20px */
-  --text-xl: 1.5rem; /* 24px */
-  --text-2xl: 1.75rem; /* 28px */
+  --text-l: 1.375rem; /* 22px */
   --text-3xl: 2.25rem; /* 36px */
 
-  --leading-body: 1.6;
+  --leading-body: 1.5;
   --leading-tight: 1.4;
   --leading-display: 1.1;
 
@@ -54,18 +53,13 @@ body {
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   font-feature-settings: "kern";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg);
   color: var(--color-ink);
 }
 
 h1,
-h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
   margin: 0;
   color: var(--color-ink);
 }
@@ -76,32 +70,9 @@ h1 {
   line-height: var(--leading-display);
 }
 
-h2 {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  line-height: var(--leading-display);
-}
-
-h3 {
-  font-size: var(--text-xl);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
+h3,
 h4 {
   font-size: var(--text-l);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
-h5 {
-  font-size: var(--text-m);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
-h6 {
-  font-size: var(--text-s);
   font-weight: 600;
   line-height: var(--leading-tight);
 }

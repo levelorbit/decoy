@@ -54,7 +54,7 @@
   position: absolute;
   top: 4px;
   right: 8px;
-  font-size: 9px;
+  font-size: var(--text-2xs);
   color: var(--color-surface);
   opacity: 0.55;
   pointer-events: none;
@@ -102,10 +102,10 @@
 }
 
 .adLabel {
-  font-size: 10px;
+  font-size: var(--text-2xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--color-ink-faint);
 }
 

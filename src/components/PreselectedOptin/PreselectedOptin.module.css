@@ -94,6 +94,6 @@
 }
 
 .buried {
-  font-size: 11px;
+  font-size: var(--text-2xs);
   color: var(--color-ink-faint);
 }
