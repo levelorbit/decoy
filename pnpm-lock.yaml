@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/ibm-plex-sans':
+        specifier: ^5.2.8
+        version: 5.2.8
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -136,6 +139,9 @@ packages:
 
   '@emnapi/wasi-threads@1.2.2':
     resolution: {integrity: sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==}
+
+  '@fontsource/ibm-plex-sans@5.2.8':
+    resolution: {integrity: sha512-eztSXjDhPhcpxNIiGTgMebdLP9qS4rWkysuE1V7c+DjOR0qiezaiDaTwQE7bTnG5HxAY/8M43XKDvs3cYq6ZYQ==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -967,6 +973,8 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@fontsource/ibm-plex-sans@5.2.8': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
