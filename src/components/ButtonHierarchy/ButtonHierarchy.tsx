@@ -1,10 +1,10 @@
 import styles from "./ButtonHierarchy.module.css";
 
 type ButtonHierarchyProps = {
-  skewed?: boolean;
+  deceptive?: boolean;
 };
 
-function ButtonHierarchy({ skewed = true }: ButtonHierarchyProps) {
+function ButtonHierarchy({ deceptive = true }: ButtonHierarchyProps) {
   return (
     <div className={styles.card}>
       <h4 className={styles.heading}>We value your privacy</h4>
@@ -13,8 +13,8 @@ function ButtonHierarchy({ skewed = true }: ButtonHierarchyProps) {
       </p>
 
       <div className={styles.actions}>
-        <button className={skewed ? styles.accept : styles.equal}>Accept all</button>
-        <button className={skewed ? styles.ghost : styles.equal}>Reject all</button>
+        <button className={deceptive ? styles.accept : styles.equal}>Accept all</button>
+        <button className={deceptive ? styles.ghost : styles.equal}>Reject all</button>
       </div>
     </div>
   );

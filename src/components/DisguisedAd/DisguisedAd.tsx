@@ -1,10 +1,10 @@
 import styles from "./DisguisedAd.module.css";
 
 type DisguisedAdProps = {
-  disguised?: boolean;
+  deceptive?: boolean;
 };
 
-function DisguisedAd({ disguised = true }: DisguisedAdProps) {
+function DisguisedAd({ deceptive = true }: DisguisedAdProps) {
   return (
     <div className={styles.card}>
       <div className={styles.file}>
@@ -12,7 +12,7 @@ function DisguisedAd({ disguised = true }: DisguisedAdProps) {
         <p className={styles.meta}>2.4 MB · updated May 12</p>
       </div>
 
-      {disguised ? (
+      {deceptive ? (
         <>
           <button className={styles.adButton}>
             Download Now

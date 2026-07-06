@@ -1,10 +1,10 @@
 .page {
   box-sizing: border-box;
-  /* The gallery is a grid of fixed 448px tracks, so an arbitrary cap
-       (e.g. 1440px) can land between column counts and strand the leftover
-       width as dead space beside the grid. Derive the cap from the tracks
-       instead: exactly three columns, their two gaps, and the page's own
-       side padding, so the grid always fills the container at full width. */
+  /* The gallery's three 1fr tracks stretch to fill the page, so the cap
+       is what keeps each card at its design width: 448px per card (400px
+       demo plus card padding), the two grid gaps, and the page's own side
+       padding. An arbitrary cap (e.g. 1440px) would let cards stretch past
+       the demo width, leaving dead space inside each card. */
   max-width: calc(3 * 448px + 2 * var(--space-4) + 2 * var(--space-5));
   margin: 0 auto;
   padding: var(--space-6) var(--space-5);

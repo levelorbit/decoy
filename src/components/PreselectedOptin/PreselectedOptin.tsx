@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./PreselectedOptin.module.css";
 
 type PreselectedOptinProps = {
-  checked?: boolean;
+  deceptive?: boolean;
 };
 
-function PreselectedOptin({ checked = true }: PreselectedOptinProps) {
-  const [subscribed, setSubscribed] = useState(checked);
-
-  useEffect(() => {
-    setSubscribed(checked);
-  }, [checked]);
+function PreselectedOptin({ deceptive = true }: PreselectedOptinProps) {
+  const [subscribed, setSubscribed] = useState(deceptive);
 
   return (
     <div className={styles.card}>
@@ -23,7 +19,7 @@ function PreselectedOptin({ checked = true }: PreselectedOptinProps) {
 
       <button className={styles.submit}>Create account</button>
 
-      <label className={`${styles.optin} ${checked ? styles.buried : ""}`}>
+      <label className={`${styles.optin} ${deceptive ? styles.buried : ""}`}>
         <input
           type="checkbox"
           checked={subscribed}

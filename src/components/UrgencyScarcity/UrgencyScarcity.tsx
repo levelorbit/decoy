@@ -2,21 +2,21 @@ import { useEffect, useState } from "react";
 import styles from "./UrgencyScarcity.module.css";
 
 type UrgencyScarcityProps = {
-  live?: boolean;
+  deceptive?: boolean;
 };
 
 const START_SECONDS = 9 * 60 + 47; // 09:47
 
-function UrgencyScarcity({ live = true }: UrgencyScarcityProps) {
+function UrgencyScarcity({ deceptive = true }: UrgencyScarcityProps) {
   const [seconds, setSeconds] = useState(START_SECONDS);
 
   useEffect(() => {
-    if (!live) return;
+    if (!deceptive) return;
     const id = setInterval(() => {
       setSeconds((s) => (s <= 0 ? START_SECONDS : s - 1));
     }, 1000);
     return () => clearInterval(id);
-  }, [live]);
+  }, [deceptive]);
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
@@ -27,10 +27,10 @@ function UrgencyScarcity({ live = true }: UrgencyScarcityProps) {
         🎧
       </div>
       <div className={styles.body}>
-        <h4 className={styles.name}>Studio Headphones</h4>
+        <h4 className={styles.heading}>Studio Headphones</h4>
         <div className={styles.price}>$129</div>
 
-        {live ? (
+        {deceptive ? (
           <>
             <p className={styles.stock}>Only 2 left in stock!</p>
             <p className={styles.viewers}>
