@@ -1,17 +1,20 @@
 import styles from "./Confirmshaming.module.css";
 
-function Confirmshaming({ confirmshaming = true }) {
+type ConfirmshamingProps = {
+  shaming?: boolean;
+};
+
+function Confirmshaming({ shaming = true }: ConfirmshamingProps) {
   return (
-    <div className={styles.confirmshaming}>
-      <div className={styles["confirmshaming-group"]}>
-        <div className={styles["confirmshaming-offer"]}>
-          Get notified about sales and exclusive offers?
-        </div>
-        <button className={styles["confirmshaming-offer-btn"]}>Yes, sign me up</button>
+    <div className={styles.card}>
+      <h4 className={styles.heading}>Get notified about sales and exclusive offers?</h4>
+
+      <div className={styles.actions}>
+        <button className={styles.signup}>Yes, sign me up</button>
+        <button className={styles.decline}>
+          {shaming ? "No thanks, I hate saving money." : "No thanks."}
+        </button>
       </div>
-      <button className={styles["confirmshaming-btn"]}>
-        {confirmshaming ? "No thanks, I hate saving money." : "No thanks."}
-      </button>
     </div>
   );
 }

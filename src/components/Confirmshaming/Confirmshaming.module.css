@@ -1,67 +1,68 @@
-.confirmshaming {
+.card {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--space-3);
   width: 100%;
   max-width: var(--demo-width);
-  padding: var(--space-4) var(--space-3);
+  padding: var(--space-4);
   background-color: var(--color-surface);
   color: var(--color-ink);
-  font-size: var(--text-s);
   border-radius: var(--radius-m);
 }
 
-.confirmshaming-group {
+.heading {
+  margin: 0;
+  font-size: var(--text-m);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+}
+
+.actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-2);
 }
 
-.confirmshaming-offer {
-  text-align: center;
+.signup {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-s);
   font-weight: 500;
-}
-
-.confirmshaming-offer-btn {
-  background-color: var(--color-accent);
   color: var(--color-surface);
+  background-color: var(--color-accent);
   border: none;
   border-radius: var(--radius-s);
-  padding: var(--space-2) var(--space-3);
-  max-width: 200px;
   cursor: pointer;
   transition:
     background-color 120ms var(--ease-out),
     transform 120ms var(--ease-out);
 }
 
-.confirmshaming-offer-btn:active {
+.signup:active {
   transform: scale(0.95);
 }
 
-.confirmshaming-btn {
-  border: none;
-  background-color: transparent;
+.decline {
+  padding: var(--space-2) 0;
+  font-size: var(--text-s);
   color: var(--color-ink);
-  max-width: 240px;
-  padding: var(--space-2) var(--space-3);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .confirmshaming-offer-btn:hover {
+  .signup:hover {
     background-color: var(--color-accent-hover);
   }
-  .confirmshaming-btn:hover {
+  .decline:hover {
     text-decoration: underline;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .confirmshaming-offer-btn {
+  .signup {
     transition: background-color 120ms var(--ease-out);
   }
 }

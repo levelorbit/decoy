@@ -19,7 +19,7 @@ export const patterns: Pattern[] = [
     title: "Confirmshaming",
     description:
       "The decline is worded to break your self-image, so refusing costs a small hit of shame that accepting avoids. In the honest version it reads as a neutral “No, thanks.”",
-    render: (deceptive) => <Confirmshaming confirmshaming={deceptive} />,
+    render: (deceptive) => <Confirmshaming shaming={deceptive} />,
   },
   {
     id: "urgency-scarcity",
