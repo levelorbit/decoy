@@ -33,11 +33,12 @@
   --color-ink-muted: oklch(0.45 0.04 85.93);
   --color-ink-faint: oklch(0.65 0.04 85.93);
   --color-border: oklch(0.84 0.05 85.93);
+  --color-border-strong: oklch(0.6 0.05 85.93);
   --color-accent: oklch(0.5191 0.1525 13.22);
-  --color-accent-hover: oklch(0.5762 0.1525 13.22);
+  --color-accent-hover: oklch(0.47 0.1525 13.22);
 
-  --color-honest: oklch(0.58 0.15 150);
-  --color-deceptive: oklch(0.55 0.19 25);
+  --color-honest: oklch(0.48 0.13 150);
+  --color-deceptive: oklch(0.52 0.19 25);
 }
 
 html {
