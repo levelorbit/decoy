@@ -38,7 +38,9 @@
   grid-area: 1 / 1;
   display: flex;
   align-items: center;
-  transition: opacity 250ms var(--ease-out);
+  /* The incoming face waits for the outgoing one to mostly clear; fading
+     both symmetrically reads as a double exposure at mid-swap. */
+  transition: opacity 200ms var(--ease-out) 80ms;
 }
 
 .demoFace {
@@ -48,6 +50,7 @@
 .swapFace[inert] {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 150ms var(--ease-out);
 }
 
 .method {
@@ -96,7 +99,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .swapFace {
+  .swapFace,
+  .swapFace[inert] {
     transition: none;
   }
 }
