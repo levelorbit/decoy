@@ -60,31 +60,9 @@
   cursor: pointer;
 }
 
-.equal {
-  flex: 1;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-s);
-  font-weight: 500;
-  color: var(--color-ink);
-  background-color: transparent;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  transition:
-    background-color 120ms var(--ease-out),
-    transform 120ms var(--ease-out);
-}
-
-.equal:active {
-  transform: scale(0.95);
-}
-
 @media (hover: hover) and (pointer: fine) {
   .accept:hover {
     background-color: var(--color-accent-hover);
-  }
-  .equal:hover {
-    background-color: var(--color-surface-dim);
   }
   .ghost:hover {
     color: var(--color-ink-muted);
@@ -92,8 +70,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .accept,
-  .equal {
+  .accept {
     transition: background-color 120ms var(--ease-out);
   }
 }

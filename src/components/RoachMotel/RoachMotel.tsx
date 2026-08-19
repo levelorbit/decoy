@@ -1,10 +1,6 @@
 import styles from "./RoachMotel.module.css";
 
-type RoachMotelProps = {
-  deceptive?: boolean;
-};
-
-function RoachMotel({ deceptive = true }: RoachMotelProps) {
+function RoachMotel() {
   return (
     <div className={styles.card}>
       <div className={styles.plan}>
@@ -14,12 +10,10 @@ function RoachMotel({ deceptive = true }: RoachMotelProps) {
 
       <div className={styles.actions}>
         <button className={styles.primary}>Upgrade plan</button>
-        <button className={styles.secondary}>
-          {deceptive ? "Pause subscription" : "Cancel subscription"}
-        </button>
+        <button className={styles.secondary}>Pause subscription</button>
       </div>
 
-      {deceptive && <p className={styles.fine}>To cancel, call 1-800-555-0134, Mon–Fri 9am–5pm.</p>}
+      <p className={styles.fine}>To cancel, call 1-800-555-0134, Mon–Fri 9am–5pm.</p>
     </div>
   );
 }

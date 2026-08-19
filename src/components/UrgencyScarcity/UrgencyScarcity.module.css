@@ -82,13 +82,6 @@
   color: var(--color-deceptive);
 }
 
-.stockHonest {
-  margin: var(--space-1) 0 0;
-  font-size: var(--text-s);
-  font-weight: 500;
-  color: var(--color-honest);
-}
-
 .buy {
   align-self: flex-start;
   margin-top: var(--space-2);

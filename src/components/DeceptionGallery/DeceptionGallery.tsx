@@ -5,9 +5,9 @@ import { patterns } from "./patterns";
 function DeceptionGallery() {
   return (
     <div className={styles.gallery}>
-      {patterns.map((p, i) => (
-        <DeceptionCard key={p.id} index={i + 1} title={p.title} description={p.description}>
-          {p.render}
+      {patterns.map((p) => (
+        <DeceptionCard key={p.id} title={p.title} method={p.method}>
+          {p.render()}
         </DeceptionCard>
       ))}
     </div>

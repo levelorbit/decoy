@@ -81,27 +81,22 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
-  font-size: var(--text-s);
+  font-size: var(--text-2xs);
   line-height: var(--leading-body);
-  color: var(--color-ink-muted);
+  color: var(--color-ink-faint);
   cursor: pointer;
   user-select: none;
 }
 
 .optin input {
   box-sizing: border-box;
-  /* Size the box to the label's font so it stays proportioned when
-     .buried shrinks the text, and center it on the first text line:
-     half the leading above the em box. */
+  /* Size the box to the label's font so it stays proportioned with the
+     buried fine print, and center it on the first text line: half the
+     leading above the em box. */
   width: 1em;
   height: 1em;
   margin-top: calc((var(--leading-body) - 1) / 2 * 1em);
   flex-shrink: 0;
   accent-color: var(--color-accent);
   cursor: pointer;
-}
-
-.buried {
-  font-size: var(--text-2xs);
-  color: var(--color-ink-faint);
 }

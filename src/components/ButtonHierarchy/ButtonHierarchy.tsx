@@ -1,10 +1,6 @@
 import styles from "./ButtonHierarchy.module.css";
 
-type ButtonHierarchyProps = {
-  deceptive?: boolean;
-};
-
-function ButtonHierarchy({ deceptive = true }: ButtonHierarchyProps) {
+function ButtonHierarchy() {
   return (
     <div className={styles.card}>
       <h4 className={styles.heading}>We value your privacy</h4>
@@ -13,8 +9,8 @@ function ButtonHierarchy({ deceptive = true }: ButtonHierarchyProps) {
       </p>
 
       <div className={styles.actions}>
-        <button className={deceptive ? styles.accept : styles.equal}>Accept all</button>
-        <button className={deceptive ? styles.ghost : styles.equal}>Reject all</button>
+        <button className={styles.accept}>Accept all</button>
+        <button className={styles.ghost}>Reject all</button>
       </div>
     </div>
   );

@@ -9,51 +9,51 @@ import ButtonHierarchy from "../ButtonHierarchy/ButtonHierarchy";
 export type Pattern = {
   id: string;
   title: string;
-  description: string;
-  render: (deceptive: boolean) => ReactNode;
+  method: string;
+  render: () => ReactNode;
 };
 
 export const patterns: Pattern[] = [
   {
     id: "confirmshaming",
     title: "Confirmshaming",
-    description:
+    method:
       "The decline is worded to break your self-image, so refusing costs a small hit of shame that accepting avoids. In the honest version it reads as a neutral “No, thanks.”",
-    render: (deceptive) => <Confirmshaming deceptive={deceptive} />,
+    render: () => <Confirmshaming />,
   },
   {
     id: "urgency-scarcity",
     title: "Urgency & scarcity tactics",
-    description:
+    method:
       "Exploits the fear of missing the chance, which replaces the question of whether you need this at all. In the honest version it reflects the actual state: “In stock” or “Out of stock,” nothing else.",
-    render: (deceptive) => <UrgencyScarcity deceptive={deceptive} />,
+    render: () => <UrgencyScarcity />,
   },
   {
     id: "preselected-optin",
     title: "Preselected opt-in",
-    description:
+    method:
       "Exploits the fact that nobody changes defaults, so your inaction counts as consent. In the honest version it’s unchecked.",
-    render: (deceptive) => <PreselectedOptin deceptive={deceptive} />,
+    render: () => <PreselectedOptin />,
   },
   {
     id: "roach-motel",
     title: "Roach motel",
-    description:
+    method:
       "Easy to join, a burden to leave. Enough friction and giving up feels like your own decision rather than the site’s design. In the honest version leaving is as easy as joining.",
-    render: (deceptive) => <RoachMotel deceptive={deceptive} />,
+    render: () => <RoachMotel />,
   },
   {
     id: "disguised-ads",
     title: "Disguised ads",
-    description:
+    method:
       "Borrows the trust you built clicking a thousand real buttons. In the honest version ads look like ads.",
-    render: (deceptive) => <DisguisedAd deceptive={deceptive} />,
+    render: () => <DisguisedAd />,
   },
   {
     id: "misleading-hierarchy",
     title: "Misleading hierarchy",
-    description:
+    method:
       "Visual prominence reads as a recommendation, so the highlighted choice feels like the correct one. In the honest version both buttons are visually equal.",
-    render: (deceptive) => <ButtonHierarchy deceptive={deceptive} />,
+    render: () => <ButtonHierarchy />,
   },
 ];

@@ -71,54 +71,14 @@
   cursor: pointer;
 }
 
-.download {
-  align-self: flex-start;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-s);
-  font-weight: 500;
-  color: var(--color-surface);
-  background-color: var(--color-accent);
-  border: none;
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  transition:
-    background-color 120ms var(--ease-out),
-    transform 120ms var(--ease-out);
-}
-
-.download:active {
-  transform: scale(0.95);
-}
-
-.adBox {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-xs);
-  color: var(--color-ink-muted);
-  border: 1px dashed var(--color-border-strong);
-  border-radius: var(--radius-s);
-}
-
-.adLabel {
-  font-size: var(--text-2xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-ink-muted);
-}
-
 @media (hover: hover) and (pointer: fine) {
-  .adButton:hover,
-  .download:hover {
+  .adButton:hover {
     background-color: var(--color-accent-hover);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .adButton,
-  .download {
+  .adButton {
     transition: background-color 120ms var(--ease-out);
   }
 }

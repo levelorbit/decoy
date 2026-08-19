@@ -7,8 +7,8 @@ function App() {
       <header className={styles.header}>
         <h1 className={styles.title}>Decoy</h1>
         <p className={styles.tagline}>
-          A hands-on collection of deceptive patterns. Each one comes in two versions: deceptive and
-          honest, so you can feel the difference.
+          A hands-on collection of deceptive patterns. Each one is here in its deceptive form, and
+          every card flips to reveal the method behind it.
         </p>
       </header>
 

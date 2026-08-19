@@ -1,12 +1,8 @@
 import { useState } from "react";
 import styles from "./PreselectedOptin.module.css";
 
-type PreselectedOptinProps = {
-  deceptive?: boolean;
-};
-
-function PreselectedOptin({ deceptive = true }: PreselectedOptinProps) {
-  const [subscribed, setSubscribed] = useState(deceptive);
+function PreselectedOptin() {
+  const [subscribed, setSubscribed] = useState(true);
 
   return (
     <div className={styles.card}>
@@ -19,7 +15,7 @@ function PreselectedOptin({ deceptive = true }: PreselectedOptinProps) {
 
       <button className={styles.submit}>Create account</button>
 
-      <label className={`${styles.optin} ${deceptive ? styles.buried : ""}`}>
+      <label className={styles.optin}>
         <input
           type="checkbox"
           checked={subscribed}

@@ -1,47 +1,49 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import styles from "./DeceptionCard.module.css";
-import StateMorph from "./StateMorph";
-import { DeceptiveIcon, HonestIcon } from "./icons";
+import { DeceptiveIcon, MethodIcon } from "./icons";
 
 type DeceptionCardProps = {
-  index: number;
   title: string;
-  description: string;
-  children: (deceptive: boolean) => ReactNode;
+  method: string;
+  children: ReactNode;
 };
 
-function DeceptionCard({ index, title, description, children }: DeceptionCardProps) {
-  const [deceptive, setDeceptive] = useState(true);
+function DeceptionCard({ title, method, children }: DeceptionCardProps) {
+  const [showMethod, setShowMethod] = useState(false);
 
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <div>
-          <span className={styles.index}>{String(index).padStart(2, "0")}</span>
-          <h3 className={styles.title}>{title}</h3>
-        </div>
+        <h3 className={styles.title}>{title}</h3>
 
         <label className={styles.toggle}>
           <input
             type="checkbox"
             className={styles.input}
-            checked={deceptive}
-            onChange={(e) => setDeceptive(e.target.checked)}
-            aria-label={`Show deceptive version of ${title}`}
+            checked={showMethod}
+            onChange={(e) => setShowMethod(e.target.checked)}
+            aria-label={`Show the method behind ${title}`}
           />
-          <span className={styles.state}>{deceptive ? "Deceptive version" : "Honest version"}</span>
           <span className={styles.face} aria-hidden="true">
-            {deceptive ? <DeceptiveIcon /> : <HonestIcon />}
+            {showMethod ? <MethodIcon /> : <DeceptiveIcon />}
           </span>
         </label>
       </div>
 
-      <div className={styles.demo}>
-        <StateMorph deceptive={deceptive}>{children}</StateMorph>
+      {/*
+       * Both faces stay mounted so they can crossfade in place; the hidden
+       * one is inert, which keeps its controls out of the tab order and out
+       * of the accessibility tree while it can't be seen.
+       */}
+      <div className={styles.swap}>
+        <div className={`${styles.swapFace} ${styles.demoFace}`} inert={showMethod}>
+          {children}
+        </div>
+        <div className={styles.swapFace} inert={!showMethod}>
+          <p className={styles.method}>{method}</p>
+        </div>
       </div>
-
-      <p className={styles.description}>{description}</p>
     </div>
   );
 }

@@ -27,6 +27,10 @@
   --leading-display: 1.1;
 
   --color-bg: oklch(0.985 0.015 85.93);
+  /* A step darker than the page but with near-page chroma, so a filled card
+     reads as a shape without going yellow and --color-surface still stands
+     out as the demo on top of it. */
+  --color-card: oklch(0.96 0.02 85.93);
   --color-surface: oklch(0.9235 0.0793 85.93);
   --color-surface-dim: oklch(0.86 0.06 85.93);
   --color-ink: oklch(0.0621 0 198.29);
@@ -37,7 +41,6 @@
   --color-accent: oklch(0.5191 0.1525 13.22);
   --color-accent-hover: oklch(0.47 0.1525 13.22);
 
-  --color-honest: oklch(0.48 0.13 150);
   --color-deceptive: oklch(0.52 0.19 25);
 }
 
