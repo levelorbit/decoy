@@ -1,34 +1,28 @@
-.page {
-  box-sizing: border-box;
-  /* The gallery's three 1fr tracks stretch to fill the page, so the cap
-       is what keeps each card at its design width: 448px per card (400px
-       demo plus card padding), the two grid gaps, and the page's own side
-       padding. An arbitrary cap (e.g. 1440px) would let cards stretch past
-       the demo width, leaving dead space inside each card. */
-  max-width: calc(3 * 448px + 2 * var(--space-4) + 2 * var(--space-5));
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-5);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  padding: 64px 28px 120px;
 }
 
 .title {
   font-size: var(--text-3xl);
   font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: var(--leading-display);
-  letter-spacing: -0.02em;
 }
 
 .tagline {
-  max-width: 60ch;
-  font-size: var(--text-m);
-  line-height: var(--leading-body);
+  max-width: 54ch;
+  margin-top: 10px;
+  font-size: var(--text-s);
   color: var(--color-ink-muted);
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 40px 18px 80px;
+  }
 }

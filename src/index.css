@@ -6,15 +6,21 @@
   --space-5: 2rem; /* 32px */
   --space-6: 3rem; /* 48px */
 
-  --radius-s: 6px;
-  --radius-m: 8px;
-  --radius-l: 12px;
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 18px;
 
-  --demo-width: 400px;
-
+  /* Strong ease-out, for anything entering or leaving. */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  /* iOS-like, for the bottom sheet. */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  /* Quad-out, which is what constant angular deceleration actually looks like.
+     The house ease-out spends 95% of its travel in the first third, so a wheel
+     using it appears to stop long before the transition ends. */
+  --ease-spin: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+  /* One scale for the gallery and for the interfaces inside it. 12px is the
+     floor; nothing goes under it. */
   --text-2xs: 0.75rem; /* 12px */
   --text-xs: 0.875rem; /* 14px */
   --text-s: 1rem; /* 16px */
@@ -26,80 +32,97 @@
   --leading-tight: 1.4;
   --leading-display: 1.1;
 
-  --color-bg: oklch(0.985 0.015 85.93);
-  /* A step darker than the page but with near-page chroma, so a filled card
-     reads as a shape without going yellow and --color-surface still stands
-     out as the demo on top of it. */
-  --color-card: oklch(0.96 0.02 85.93);
-  --color-surface: oklch(0.9235 0.0793 85.93);
-  --color-surface-dim: oklch(0.86 0.06 85.93);
-  --color-ink: oklch(0.0621 0 198.29);
-  --color-ink-muted: oklch(0.45 0.04 85.93);
-  --color-ink-faint: oklch(0.65 0.04 85.93);
-  --color-border: oklch(0.84 0.05 85.93);
-  --color-border-strong: oklch(0.6 0.05 85.93);
-  --color-accent: oklch(0.5191 0.1525 13.22);
-  --color-accent-hover: oklch(0.47 0.1525 13.22);
+  --color-bg: oklch(0.9701 0.0041 91.45);
+  --color-card: oklch(0.9488 0.0054 95.1);
+  /* Demos are white so an interface reads as something placed on the gallery
+     rather than another region of it. Sunk is the recess inside a demo: rails,
+     stages, and the block each demo resolves into. */
+  --color-surface: oklch(1 0 0);
+  --color-surface-sunk: oklch(0.9853 0.0029 84.56);
 
-  --color-deceptive: oklch(0.52 0.19 25);
+  --color-ink: oklch(0.1864 0.008 95.48);
+  --color-ink-muted: oklch(0.5254 0.0133 84.59);
+  --color-ink-faint: oklch(0.7103 0.011 81.79);
+
+  --color-border: oklch(0.9218 0.0083 91.49);
+  --color-border-strong: oklch(0.867 0.0114 89.73);
+
+  /* The only colour in the gallery. It belongs to the one pattern whose entire
+     job is to take your attention, so it earns being the exception. */
+  --color-flag-bg: oklch(0.9743 0.0224 87.15);
+  --color-flag-line: oklch(0.9146 0.0509 89.76);
+  --color-flag-ink: oklch(0.4907 0.0937 83.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   font-size: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: var(--text-s);
   font-weight: 400;
   line-height: var(--leading-body);
+  letter-spacing: -0.005em;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
   background-color: var(--color-bg);
   color: var(--color-ink);
 }
 
-button,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  /* Sized in context. A heading inside a demo is part of that interface and
+     has nothing to do with the heading of the card holding it. */
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
 input,
 select,
 textarea {
   font: inherit;
 }
 
-h1,
-h3,
-h4 {
-  margin: 0;
-  color: var(--color-ink);
+/* Icons never sit on a text baseline, and never shrink inside a flex row. */
+svg {
+  display: block;
+  flex: none;
 }
 
-h1 {
-  font-size: var(--text-3xl);
-  font-weight: 700;
-  line-height: var(--leading-display);
-}
-
-h3,
-h4 {
-  font-size: var(--text-l);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
-p {
-  margin: 0;
-}
-
-small,
-.text-caption {
-  font-size: var(--text-xs);
-  line-height: 1.4;
-}
-
-.text-lead {
-  font-size: var(--text-m);
-  font-weight: 400;
-  line-height: 1.5;
+/* Reduced motion keeps the fades and drops the travel, rather than flattening
+   every transition to nothing. Demos that also animate a transform hold their
+   own overrides, since a whitelist can stop a transform moving but cannot undo
+   a starting offset. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    transition-duration: 0.16s !important;
+  }
 }

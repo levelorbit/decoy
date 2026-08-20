@@ -1,95 +1,107 @@
-.card {
-  box-sizing: border-box;
+.portal {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  width: 100%;
-  max-width: var(--demo-width);
-  padding: var(--space-4);
-  background-color: var(--color-surface);
-  color: var(--color-ink);
-  border-radius: var(--radius-m);
+  align-items: center;
+  gap: 6px;
+  padding: 11px var(--space-3);
+  font-size: var(--text-2xs);
+  color: var(--color-ink-faint);
+  background-color: var(--color-surface-sunk);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.plan {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.heading {
-  margin: 0;
-  font-size: var(--text-m);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
-.detail {
-  margin: 0;
-  font-size: var(--text-s);
+.portal b {
+  font-weight: 500;
   color: var(--color-ink-muted);
 }
 
-.actions {
+.step {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+  flex-direction: column;
+  min-height: 214px;
+  padding: 18px var(--space-3) var(--space-3);
 }
 
-.primary {
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-s);
-  font-weight: 500;
-  color: var(--color-surface);
-  background-color: var(--color-accent);
-  border: none;
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  transition:
-    background-color 120ms var(--ease-out),
-    transform 120ms var(--ease-out);
+.stepTitle {
+  font-size: var(--text-m);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
 }
 
-.primary:active {
-  transform: scale(0.95);
+.stepLead {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+  color: var(--color-ink-muted);
 }
 
-.secondary {
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-s);
-  font-weight: 500;
+.leaveRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  font-size: var(--text-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.leaveRow:last-of-type {
+  border-bottom: 0;
+}
+
+.leaveLabel {
   color: var(--color-ink);
-  background-color: transparent;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  transition:
-    background-color 120ms var(--ease-out),
-    transform 120ms var(--ease-out);
 }
 
-.secondary:active {
-  transform: scale(0.95);
-}
-
-.fine {
-  margin: 0;
-  font-size: var(--text-2xs);
+.leaveIcon {
+  display: flex;
   color: var(--color-ink-faint);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .primary:hover {
-    background-color: var(--color-accent-hover);
-  }
-  .secondary:hover {
-    background-color: var(--color-surface-dim);
-  }
+.note {
+  margin-top: 12px;
+  font-size: var(--text-2xs);
+  line-height: var(--leading-body);
+  color: var(--color-ink-faint);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .primary,
-  .secondary {
-    transition: background-color 120ms var(--ease-out);
-  }
+.done {
+  padding: 10px 0 4px;
+  text-align: center;
+}
+
+.tick {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 14px;
+  color: var(--color-ink-muted);
+  background-color: oklch(0.9553 0.007 88.64);
+  border-radius: 50%;
+}
+
+.doneTitle {
+  font-size: var(--text-s);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.done p {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  line-height: var(--leading-body);
+  color: var(--color-ink-muted);
+}
+
+/* The note under the receipt is a caption to it, not a new statement. */
+.done + .note {
+  text-align: center;
+}
+
+.ref {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--text-2xs);
+  color: var(--color-ink);
 }

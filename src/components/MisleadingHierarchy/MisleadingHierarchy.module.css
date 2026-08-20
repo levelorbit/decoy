@@ -1,0 +1,67 @@
+.dialog {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  padding: 18px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-m);
+  box-shadow: 0 14px 34px -20px oklch(0.1864 0.008 95.48 / 0.5);
+  /* Real consent dialogs scroll, which is how "Reject all" ends up below the
+     fold. Keeping that true here rather than shrinking the list to fit. */
+  max-height: calc(100% - 28px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.dialog::-webkit-scrollbar {
+  width: 0;
+}
+
+.title {
+  font-size: var(--text-s);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.legal {
+  margin-top: var(--space-2);
+  font-size: var(--text-2xs);
+  line-height: var(--leading-body);
+  color: var(--color-ink-muted);
+}
+
+.legal a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.prefs {
+  margin-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.purpose {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.purpose:last-child {
+  border-bottom: 0;
+}
+
+.purpose h4 {
+  font-size: var(--text-2xs);
+  font-weight: 500;
+}
+
+.purpose span {
+  font-size: var(--text-2xs);
+  color: var(--color-ink-faint);
+}

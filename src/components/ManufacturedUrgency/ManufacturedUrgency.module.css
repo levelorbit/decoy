@@ -1,0 +1,244 @@
+/* Sized for a 370px column, so every string here is written to fit the line
+   it is given. */
+.app {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  height: 312px;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding: 9px 7px;
+  background-color: var(--color-surface-sunk);
+  border-right: 1px solid var(--color-border);
+}
+
+.railBrand {
+  padding: 0 5px 7px;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.railItem {
+  padding: 6px 7px;
+  font-size: var(--text-2xs);
+  color: var(--color-ink-muted);
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.railItemOn {
+  color: var(--color-ink);
+  background-color: oklch(0.9162 0.01 87.47);
+}
+
+.railFoot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.railChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  padding: 5px 10px;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  transition: border-color 150ms ease;
+}
+
+.railMe {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 0 1px;
+  font-size: var(--text-2xs);
+  color: var(--color-ink-muted);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  color: var(--color-surface);
+  background-color: var(--color-ink);
+  border-radius: 50%;
+}
+
+.who {
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.name {
+  display: block;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.plan {
+  display: block;
+  color: var(--color-ink-faint);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.thread {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 11px;
+  overflow: hidden;
+}
+
+.me {
+  align-self: flex-end;
+  max-width: 90%;
+  padding: 6px 9px;
+  font-size: var(--text-2xs);
+  line-height: var(--leading-tight);
+  background-color: oklch(0.9553 0.007 88.64);
+  border-radius: 12px;
+}
+
+.bot {
+  font-size: var(--text-2xs);
+  line-height: 1.45;
+}
+
+.nag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  background-color: var(--color-flag-bg);
+  border-top: 1px solid var(--color-flag-line);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+}
+
+@starting-style {
+  .nag {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.nagText {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-2xs);
+  line-height: 1.35;
+  color: var(--color-flag-ink);
+}
+
+.nagTitle {
+  display: block;
+}
+
+.nagMeta {
+  display: block;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.nagUpgrade {
+  padding: 0;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  color: var(--color-flag-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.nagClose {
+  flex: none;
+  padding: 1px 2px;
+  font-size: var(--text-2xs);
+  line-height: 1;
+  color: var(--color-flag-ink);
+  opacity: 0.5;
+}
+
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: var(--space-2) 10px;
+  border-top: 1px solid var(--color-border);
+}
+
+.composer input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 11px;
+  font-size: var(--text-2xs);
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+}
+
+.composer input:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 1px;
+}
+
+.send {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--color-surface);
+  background-color: var(--color-ink);
+  border-radius: 50%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .railChip:hover {
+    border-color: var(--color-ink-faint);
+  }
+
+  .nagUpgrade:hover {
+    opacity: 0.75;
+  }
+
+  .nagClose:hover {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nag {
+    transform: none !important;
+  }
+}

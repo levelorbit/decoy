@@ -1,84 +1,172 @@
-.card {
-  box-sizing: border-box;
+/* The promoted post is built from the organic post's parts, so the two are
+   only ever one label apart. */
+.feed {
   display: flex;
   flex-direction: column;
+  height: 372px;
+}
+
+.tabs {
+  display: flex;
   gap: var(--space-3);
-  width: 100%;
-  max-width: var(--demo-width);
-  padding: var(--space-4);
-  background-color: var(--color-surface);
-  color: var(--color-ink);
-  border-radius: var(--radius-m);
-}
-
-.file {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.heading {
-  margin: 0;
-  font-size: var(--text-m);
-  font-weight: 600;
-  line-height: var(--leading-tight);
-}
-
-.meta {
-  margin: 0;
-  font-size: var(--text-s);
-  color: var(--color-ink-muted);
-}
-
-.adButton {
-  position: relative;
-  width: 100%;
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--text-s);
-  font-weight: 500;
-  color: var(--color-surface);
-  background-color: var(--color-accent);
-  border: none;
-  border-radius: var(--radius-s);
-  cursor: pointer;
-  transition:
-    background-color 120ms var(--ease-out),
-    transform 120ms var(--ease-out);
-}
-
-.adButton:active {
-  transform: scale(0.95);
-}
-
-.adTag {
-  position: absolute;
-  top: 4px;
-  right: 8px;
+  padding: 10px 14px;
   font-size: var(--text-2xs);
-  color: var(--color-surface);
-  opacity: 0.55;
-  pointer-events: none;
+  color: var(--color-ink-faint);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.realLink {
-  align-self: flex-start;
-  padding: 0;
-  font-size: var(--text-xs);
-  color: var(--color-ink-muted);
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
+.tabOn {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* Overlay-style: no gutter, and a short fade at the bottom edge stands in for
+   the scrollbar as the "more below" cue. */
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent);
+}
+
+.scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post:last-child {
+  border-bottom: 0;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  color: var(--color-surface);
+  background-color: var(--color-ink);
+  border-radius: 50%;
+}
+
+.postHead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: var(--text-2xs);
+}
+
+.postHead b {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.postHead span {
+  color: var(--color-ink-faint);
+}
+
+.tag {
+  margin-top: 1px;
+  font-size: var(--text-2xs);
+  color: var(--color-ink-faint);
+}
+
+.text {
+  margin-top: 3px;
+  font-size: var(--text-2xs);
+  line-height: var(--leading-body);
+}
+
+.preview {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  transition: border-color 150ms ease;
+}
+
+.previewImg {
+  display: block;
+  height: 76px;
+  background: linear-gradient(
+    130deg,
+    oklch(0.8918 0.01 87.48),
+    oklch(0.7712 0.0151 84.59) 60%,
+    oklch(0.6348 0.0158 84.59)
+  );
+}
+
+.alt {
+  background: linear-gradient(
+    130deg,
+    oklch(0.8844 0.0076 260.73),
+    oklch(0.7464 0.0141 262.37) 60%,
+    oklch(0.6083 0.0167 260.72)
+  );
+}
+
+.previewMeta {
+  display: block;
+  padding: var(--space-2) 10px;
+  background-color: var(--color-surface-sunk);
+}
+
+.previewMeta b {
+  display: block;
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.previewMeta span {
+  display: block;
+  margin-top: 1px;
+  font-size: var(--text-2xs);
+  color: var(--color-ink-faint);
+}
+
+.actions {
+  display: flex;
+  gap: 22px;
+  margin-top: var(--space-2);
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 0;
+  font-size: var(--text-2xs);
+  color: var(--color-ink-faint);
+}
+
+.actionOn {
+  font-weight: 600;
+  color: var(--color-ink);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .adButton:hover {
-    background-color: var(--color-accent-hover);
+  .preview:hover {
+    border-color: var(--color-border-strong);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .adButton {
-    transition: background-color 120ms var(--ease-out);
+  button.action:hover {
+    color: var(--color-ink-muted);
   }
 }

@@ -1,50 +1,69 @@
-import { useState } from "react";
+import { useId, useRef } from "react";
 import type { ReactNode } from "react";
+import { Info, X } from "lucide-react";
 import styles from "./DeceptionCard.module.css";
-import { DeceptiveIcon, MethodIcon } from "./icons";
 
 type DeceptionCardProps = {
   title: string;
-  method: string;
+  method: string[];
   children: ReactNode;
 };
 
+/*
+ * The reveal is a modal rather than a second face of the card. Method copy is
+ * no longer capped by the height of the demo beside it, and the demo keeps
+ * whatever state it was left in while you read about it.
+ */
 function DeceptionCard({ title, method, children }: DeceptionCardProps) {
-  const [showMethod, setShowMethod] = useState(false);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
 
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.header}>
-        <h3 className={styles.title}>{title}</h3>
-
-        <label className={styles.toggle}>
-          <input
-            type="checkbox"
-            className={styles.input}
-            checked={showMethod}
-            onChange={(e) => setShowMethod(e.target.checked)}
-            aria-label={`Show the method behind ${title}`}
-          />
-          <span className={styles.face} aria-hidden="true">
-            {showMethod ? <MethodIcon /> : <DeceptiveIcon />}
-          </span>
-        </label>
+        <h2 className={styles.title}>{title}</h2>
+        <button
+          type="button"
+          className={styles.reveal}
+          aria-label={`How ${title.toLowerCase()} works`}
+          onClick={() => dialog.current?.showModal()}
+        >
+          <Info size={15} />
+        </button>
       </div>
 
-      {/*
-       * Both faces stay mounted so they can crossfade in place; the hidden
-       * one is inert, which keeps its controls out of the tab order and out
-       * of the accessibility tree while it can't be seen.
-       */}
-      <div className={styles.swap}>
-        <div className={`${styles.swapFace} ${styles.demoFace}`} inert={showMethod}>
-          {children}
+      {children}
+
+      <dialog
+        ref={dialog}
+        className={styles.modal}
+        aria-labelledby={titleId}
+        /* Clicks land on the dialog element itself only when they miss the
+           panel, which is what makes this a backdrop click. */
+        onClick={(event) => {
+          if (event.target === dialog.current) dialog.current.close();
+        }}
+      >
+        <div className={styles.modalHead}>
+          <h3 id={titleId} className={styles.modalTitle}>
+            {title}
+          </h3>
+          <button
+            type="button"
+            className={styles.modalClose}
+            aria-label="Close"
+            onClick={() => dialog.current?.close()}
+          >
+            <X size={15} />
+          </button>
         </div>
-        <div className={styles.swapFace} inert={!showMethod}>
-          <p className={styles.method}>{method}</p>
+        <div className={styles.modalBody}>
+          {method.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
-      </div>
-    </div>
+      </dialog>
+    </article>
   );
 }
 
