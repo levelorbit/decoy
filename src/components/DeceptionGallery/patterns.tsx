@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import MisleadingHierarchy from "../MisleadingHierarchy/MisleadingHierarchy";
 import PreselectedOptin from "../PreselectedOptin/PreselectedOptin";
 import DisguisedAd from "../DisguisedAd/DisguisedAd";
+import StreakUpkeep from "../StreakUpkeep/StreakUpkeep";
 import HardToLeave from "../HardToLeave/HardToLeave";
 
 export type Pattern = {
@@ -43,6 +44,16 @@ export const patterns: Pattern[] = [
       "Three of these posts are from brands. One says Ad, one says Suggested for you, and one carries no label. You cannot tell by scrolling which ones were paid for.",
     ],
     render: () => <DisguisedAd />,
+  },
+  {
+    id: "streak-upkeep",
+    title: "Streak upkeep",
+    method: [
+      "The last real sentence in this chat was the birthday, twenty-four days ago. Since then: “streaks”, “streaks”, a photo of the ceiling. The habit didn't accompany the friendship; it replaced it. Ember even pre-writes the message, so a day of closeness costs one tap and no thought.",
+      "Nothing in this loop is for sale — no freeze, no repair fee. The streak is free to keep and free to lose, because a daily return is worth more than $4.99. The maintenance isn't a feature of the app; the app exists to house the maintenance.",
+      "And the streak has two owners, so a missed day fails Mara, not Ember. Restoring costs nothing, but she can see whose day it was. The app never sends a bill. Your friends collect.",
+    ],
+    render: () => <StreakUpkeep />,
   },
   {
     id: "hard-to-leave",
