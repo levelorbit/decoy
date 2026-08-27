@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import MisleadingHierarchy from "../MisleadingHierarchy/MisleadingHierarchy";
-import ManufacturedUrgency from "../ManufacturedUrgency/ManufacturedUrgency";
 import PreselectedOptin from "../PreselectedOptin/PreselectedOptin";
 import DisguisedAd from "../DisguisedAd/DisguisedAd";
 import RoachMotel from "../RoachMotel/RoachMotel";
@@ -25,15 +24,6 @@ export const patterns: Pattern[] = [
       "Both options are there, which is all compliance checks for. Only one is meant to be found.",
     ],
     render: () => <MisleadingHierarchy />,
-  },
-  {
-    id: "manufactured-urgency",
-    title: "Manufactured urgency",
-    method: [
-      "Exploits the fear of missing the chance, which replaces the question of whether you need this at all.",
-      "It asks in two places at once. Close the banner and it comes back. The chip by your name has no close button at all.",
-    ],
-    render: () => <ManufacturedUrgency />,
   },
   {
     id: "preselected-optin",
