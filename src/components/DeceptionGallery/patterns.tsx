@@ -3,7 +3,6 @@ import MisleadingHierarchy from "../MisleadingHierarchy/MisleadingHierarchy";
 import ManufacturedUrgency from "../ManufacturedUrgency/ManufacturedUrgency";
 import PreselectedOptin from "../PreselectedOptin/PreselectedOptin";
 import DisguisedAd from "../DisguisedAd/DisguisedAd";
-import Confirmshaming from "../Confirmshaming/Confirmshaming";
 import RoachMotel from "../RoachMotel/RoachMotel";
 
 export type Pattern = {
@@ -54,15 +53,6 @@ export const patterns: Pattern[] = [
       "Three of these posts are from brands. One says Ad, one says Suggested for you, and one carries no label. You cannot tell by scrolling which ones were paid for.",
     ],
     render: () => <DisguisedAd />,
-  },
-  {
-    id: "confirmshaming",
-    title: "Confirmshaming",
-    method: [
-      "The decline is worded to break your self-image, so refusing costs a small hit of shame that accepting avoids.",
-      "Both buttons close the same popup, so the wording does all the work.",
-    ],
-    render: () => <Confirmshaming />,
   },
   {
     id: "roach-motel",
