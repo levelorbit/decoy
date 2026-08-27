@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import MisleadingHierarchy from "../MisleadingHierarchy/MisleadingHierarchy";
 import PreselectedOptin from "../PreselectedOptin/PreselectedOptin";
 import DisguisedAd from "../DisguisedAd/DisguisedAd";
-import RoachMotel from "../RoachMotel/RoachMotel";
+import HardToLeave from "../HardToLeave/HardToLeave";
 
 export type Pattern = {
   id: string;
@@ -45,12 +45,12 @@ export const patterns: Pattern[] = [
     render: () => <DisguisedAd />,
   },
   {
-    id: "roach-motel",
-    title: "Roach motel",
+    id: "hard-to-leave",
+    title: "Hard to leave",
     method: [
-      "Easy to join, a burden to leave. Enough friction and giving up feels like your own decision rather than the site’s design.",
-      "Deletion is not in the product. It is a form on another site, and they reply by email days later.",
+      "Easy to start, a slog to stop. Cancelling lives in the product. Finishing it means walking through a new reason to stay on every screen.",
+      "Half price for three months, then a free month, then a list of what the workspace takes with it. The button that actually cancels is the last and quietest one. Most people take an offer before they get there.",
     ],
-    render: () => <RoachMotel />,
+    render: () => <HardToLeave />,
   },
 ];
